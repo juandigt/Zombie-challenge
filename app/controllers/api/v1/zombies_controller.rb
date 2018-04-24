@@ -1,6 +1,6 @@
 class Api::V1::ZombiesController < Api::V1::BaseController
 
-   before_action :set_zombie, only: [ :show, :update ]
+   before_action :set_zombie, only: [ :show, :update, :destroy ]
 
   def index
     @zombies = Zombie.all
@@ -28,6 +28,11 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     else
       render_error
     end
+  end
+
+  def destroy
+    @zombie.destroy
+    head :no_content
   end
 
   private
