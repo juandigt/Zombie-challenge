@@ -37,7 +37,7 @@ class Api::V1::ArmorsController < Api::V1::BaseController
   def armor_params
     permitted = params.require(:armor).permit(:name, :attack_points, :durability, :price)
   end
-
+  
   def render_error
     render json: { errors: @armor.errors.full_messages },
       status: :unprocessable_entity
