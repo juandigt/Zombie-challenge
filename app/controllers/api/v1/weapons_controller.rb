@@ -1,52 +1,46 @@
 class Api::V1::WeaponsController < Api::V1::BaseController
 
-   before_action :set_weapon, only: [ :show, :update, :destroy ]
+  before_action :set_weapon, only: [ :update, :destroy ]
 
   def index
-    @zombies = Zombie.all
-    render json: @zombies
-  end
-
-   def show
-    @weapon = @zombie.weapons
-    @armor = @zombie.armors
-    render json: { zombie: @zombie, zombie_weapons: @weapon, zombie_armors: @armor}
+    @weapons = Weapon.all
+    render json: @weapons
   end
 
   def create
-    @zombie = Zombie.new(zombie_params)
-    if @zombie.save
-      render :show, status: :created
+    @weapon = Weapon.new(weapon_params)
+    if @weapon.save
+      render :index, status: :created
     else
       render_error
     end
   end
 
   def update
-    if @zombie.update(zombie_params)
-      render :show
+    if @weapon.update(weapon_params)
+      render :index
     else
       render_error
     end
   end
 
   def destroy
-    @zombie.destroy
+    @weapon.destroy
     head :no_content
   end
 
   private
 
-  def set_zombie
-    @zombie = Zombie.find(params[:id])
+  def set_weapon
+    @weapon = Weapon.find(params[:id])
   end
 
-  def zombie_params
-    permitted = params.require(:zombie).permit(:name, :hit_points, :brains_eaten, :speed, :turn_date)
+  def weapon_params
+    permitted = params.require(:weapon).permit(:name, :attack_points, :durability, :price)
   end
 
   def render_error
-    render json: { errors: @zombie.errors.full_messages },
+    render json: { errors: @weapon.errors.full_messages },
       status: :unprocessable_entity
   end
 end
