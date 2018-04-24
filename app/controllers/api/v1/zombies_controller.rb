@@ -1,6 +1,6 @@
 class Api::V1::ZombiesController < Api::V1::BaseController
 
-   before_action :set_zombie, only: [ :show ]
+   before_action :set_zombie, only: [ :show, :update ]
 
   def index
     @zombies = Zombie.all
@@ -22,6 +22,14 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     end
   end
 
+  def update
+    if @zombie.update(zombie_params)
+      render :show
+    else
+      render_error
+    end
+  end
+
   private
 
   def set_zombie
@@ -30,5 +38,10 @@ class Api::V1::ZombiesController < Api::V1::BaseController
 
   def zombie_params
     permitted = params.require(:zombie).permit(:name, :hit_points, :brains_eaten, :speed, :turn_date)
+  end
+
+  def render_error
+    render json: { errors: @zombie.errors.full_messages },
+      status: :unprocessable_entity
   end
 end
