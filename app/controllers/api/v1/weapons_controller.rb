@@ -1,5 +1,4 @@
 class Api::V1::WeaponsController < Api::V1::BaseController
-
   before_action :set_weapon, only: [ :update, :destroy ]
 
   def index
