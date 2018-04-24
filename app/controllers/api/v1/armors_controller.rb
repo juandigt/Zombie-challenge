@@ -1,6 +1,5 @@
 class Api::V1::ArmorsController < Api::V1::BaseController
-
-   before_action :set_armor, only: [ :update, :destroy ]
+  before_action :set_armor, only: [ :update, :destroy ]
 
   def index
     @armors = Armor.all
