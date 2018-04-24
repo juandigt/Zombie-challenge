@@ -4,4 +4,7 @@ class Zombie < ApplicationRecord
 
   has_many :weapons, through: :zombie_weapons
   has_many :armors, through: :zombie_armors
+
+  # Zombie must have a name and it must be unique
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 end
