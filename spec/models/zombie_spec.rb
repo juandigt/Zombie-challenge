@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Zombie, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:zombie_armors).dependent(:destroy) }
+  it { should have_many(:zombie_weapons).dependent(:destroy) }
 end
