@@ -3,8 +3,11 @@ class Api::V1::ZombiesController < Api::V1::BaseController
    before_action :set_zombie, only: [ :show, :update, :destroy, :add_armor, :add_weapon, :remove_armor, :remove_weapon ]
 
   def index
-    @zombies = Zombie.all
-    render json: @zombies
+    @zombies = Zombie.where(nil) # creates an anonymous scope
+    @zombies = @zombies.starts_with(params[:starts_with]) if params[:starts_with].present?
+    @zombies = @zombies.speed(params[:speed]) if params[:speed].present?
+    @zombies = @zombies.hit_points(params[:hit_points]) if params[:hit_points].present?
+    @zombies = @zombies.brains_eaten(params[:brains_eaten]) if params[:brains_eaten].present?
   end
 
   def show
@@ -38,8 +41,9 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     head :no_content
   end
 
-  def add_armor
-    @zombie.armors << Armor.all.sample
+  #Methods for add and remove armors and weapons to the zombie
+  def add_weapon
+    @zombie.weapons << Weapon.all.sample
     if
       @zombie.save
       render :show
@@ -48,8 +52,8 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     end
   end
 
-  def add_weapon
-    @zombie.weapons << Weapon.all.sample
+  def add_armor
+    @zombie.armors << Armor.all.sample
     if
       @zombie.save
       render :show
