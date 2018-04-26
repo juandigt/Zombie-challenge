@@ -18,7 +18,6 @@ default: &default
   username: root
   password: <%= ENV.fetch('API_DB_PASSWORD', '') %>
   
-  socket: /var/run/mysqld/mysql.sock
 
 development:
   <<: *default
