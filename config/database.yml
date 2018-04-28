@@ -17,8 +17,6 @@ default: &default
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
   username: root
   password: <%= ENV.fetch('API_DB_PASSWORD', '') %>
-  
-  
 
 development:
   
@@ -52,6 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['API_DB_NAME'] %>
-  username: <%= ENV['API_DB_USERNAME'] %>
-  password: <%= ENV['API_DB_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: <%= ENV['API_DB_NAME'] %>
+  # username: <%= ENV['API_DB_USERNAME'] %>
+  # password: <%= ENV['API_DB_PASSWORD'] %>

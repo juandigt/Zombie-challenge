@@ -13,4 +13,7 @@ class Zombie < ApplicationRecord
   scope :speed, -> (speed) { where speed: speed }
   scope :brains_eaten, -> (brains_eaten) { where brains_eaten: brains_eaten }
   scope :hit_points, -> (hit_points) { where hit_points: hit_points }
+  scope :weapons, -> (weapons) {joins(:zombie_weapons).where("zombie_weapons.weapon_id IN (?)", weapons)}
+  scope :armors, -> (armors) {joins(:zombie_armors).where("zombie_armors.armor_id IN (?)", armors)}
+
 end
