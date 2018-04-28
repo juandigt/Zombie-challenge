@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ZombiesController, type: :controller do
+RSpec.describe Api::V1::ZombiesController, type: :controller do
 
   describe "GET #new" do
     it "returns http success" do
