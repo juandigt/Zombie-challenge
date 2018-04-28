@@ -8,6 +8,8 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     @zombies = @zombies.speed(params[:speed]) if params[:speed].present?
     @zombies = @zombies.hit_points(params[:hit_points]) if params[:hit_points].present?
     @zombies = @zombies.brains_eaten(params[:brains_eaten]) if params[:brains_eaten].present?
+    @zombies = @zombies.weapons(params[:weapons].split(',')) if params[:weapons].present?
+    @zombies = @zombies.armors(params[:armors].split(',')) if params[:armors].present?
   end
 
   def show

@@ -18,8 +18,6 @@ default: &default
   username: root
   password: <%= ENV.fetch('API_DB_PASSWORD', '') %>
 
-
-
 development:
 
   database:  <%= ENV.fetch('API_DB_NAME', 'coding-challenge-api-dev') %>
@@ -52,6 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['API_DB_NAME'] %>
-  username: <%= ENV['API_DB_USERNAME'] %>
-  password: <%= ENV['API_DB_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: <%= ENV['API_DB_NAME'] %>
+  # username: <%= ENV['API_DB_USERNAME'] %>
+  # password: <%= ENV['API_DB_PASSWORD'] %>
