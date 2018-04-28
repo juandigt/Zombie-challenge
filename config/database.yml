@@ -17,11 +17,9 @@ default: &default
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
   username: root
   password: <%= ENV.fetch('API_DB_PASSWORD', '') %>
-  socket: /var/run/mysqld/mysql.sock
-  
 
 development:
-  <<: *default
+
   database:  <%= ENV.fetch('API_DB_NAME', 'coding-challenge-api-dev') %>
 
 # Warning: The database defined as "test" will be erased and
