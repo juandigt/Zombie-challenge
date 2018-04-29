@@ -101,3 +101,4 @@ RSpec.describe Api::V1::ZombiesController, type: :controller do
       }.to change(Zombie, :count).by(-1)
     end
   end
+end
