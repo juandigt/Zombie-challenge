@@ -19,7 +19,7 @@ default: &default
   password: <%= ENV.fetch('API_DB_PASSWORD', '') %>
 
 development:
-  
+
   database:  <%= ENV.fetch('API_DB_NAME', 'coding-challenge-api-dev') %>
 
 # Warning: The database defined as "test" will be erased and
