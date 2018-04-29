@@ -1,6 +1,8 @@
 require 'rails_helper'
 
+
 RSpec.describe Api::V1::ZombiesController, type: :controller do
+
 
   let(:valid_attributes) {
     FactoryBot.attributes_for(:zombie)
