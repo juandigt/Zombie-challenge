@@ -8,6 +8,8 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     @zombies = @zombies.speed(params[:speed]) if params[:speed].present?
     @zombies = @zombies.hit_points(params[:hit_points]) if params[:hit_points].present?
     @zombies = @zombies.brains_eaten(params[:brains_eaten]) if params[:brains_eaten].present?
+    @zombies = @zombies.weapons(params[:weapons].split(',')) if params[:weapons].present?
+    @zombies = @zombies.armors(params[:armors].split(',')) if params[:armors].present?
   end
 
   def show
@@ -18,8 +20,8 @@ class Api::V1::ZombiesController < Api::V1::BaseController
 
   def create
     @zombie = Zombie.new(zombie_params)
-    @zombie.armors << Armor.all.sample
-    @zombie.weapons << Weapon.all.sample
+    # @zombie.armors << Armor.all.sample
+    # @zombie.weapons << Weapon.all.sample
     if
       @zombie.save
       render :show, status: :created
