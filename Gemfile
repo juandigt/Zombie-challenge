@@ -31,7 +31,7 @@ group :development, :test do
   # Use Rspec as testing tool
   gem 'rspec-rails'
   # Use Faker to create seeds or factories
-  gem 'faker', git: 'https://github.com/stympy/faker', :branch => 'master'
+  gem 'faker', git: 'https://github.com/stympy/faker'
 
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
