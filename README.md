@@ -39,9 +39,9 @@ For the implementation of the solution:
 6. I deployed the API to Heroku: https://zombie-challenge-badi.herokuapp.com/
 
 
-##The API
+## The API
 
-###These are the calls to the API:
+### These are the calls to the API:
 
 
 Show Zombie
@@ -143,9 +143,18 @@ Destroy Armor
 - URL Params: Required: id=[integer]
 
 
+## Used Technologies:
+- ruby 2.4.3
+- Rails 5.1.3
+- MySQL
+- Heroku
+- Docker
+- Postman
+
+
+
 
 *** There are some task I'm still working on it. Like controller test or seed the heroku app after deployed.
-
 
 
 
