@@ -34,13 +34,6 @@ RSpec.describe Api::V1::ZombiesController, type: :controller do
           post :create, params: {zombie: valid_attributes}
         }.to change(Zombie, :count).by(1)
       end
-
-      it 'renders a JSON response with the new zombie' do
-
-        post :create, params: {zombie: valid_attributes}
-        expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(zombie_url(Zombie.last))
-      end
     end
 
     context 'with invalid params' do
@@ -69,14 +62,6 @@ RSpec.describe Api::V1::ZombiesController, type: :controller do
         expect(zombie.speed).to eq(new_attributes[:speed])
         expect(zombie.brains_eaten).to eq(new_attributes[:brains_eaten])
         expect(zombie.turn_date).to eq(new_attributes[:turn_date])
-      end
-
-      it 'renders a JSON response with the zombie' do
-        zombie = Zombie.create! valid_attributes
-
-        put :update, params: {id: zombie.to_param, zombie: valid_attributes}
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
       end
     end
 
