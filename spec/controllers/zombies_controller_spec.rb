@@ -121,33 +121,3 @@ RSpec.describe Api::V1::ZombiesController, type: :controller do
     end
   end
 end
-
-#   describe 'GET #index' do
-#     it 'returns a success response', :show_in_doc do
-#       valid_attributes = (name:"Green Tinkles", hit_points: 3, brains_eaten: 2, speed: 9, turn_date:"2017-03-21T00:00:00.000Z") }
-# )
-#       zombie = Zombie.create! valid_attributes
-#       get :index, params: {}
-#       expect(response).to be_success
-#     end
-#   end
-
-# RSpec.describe Api::V1::ZombiesController, type: :controller do
-
-
-
-#   describe "GET #index" do
-#     it "returns http success" do
-#       get :index
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-
-#   describe "GET #show" do
-#     it "returns http success" do
-#       get :show
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-
-# end
