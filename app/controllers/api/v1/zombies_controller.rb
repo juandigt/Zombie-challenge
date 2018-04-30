@@ -20,8 +20,8 @@ class Api::V1::ZombiesController < Api::V1::BaseController
 
   def create
     @zombie = Zombie.new(zombie_params)
-    # @zombie.armors << Armor.all.sample
-    # @zombie.weapons << Weapon.all.sample
+    @zombie.armors << Armor.all.sample
+    @zombie.weapons << Weapon.all.sample
     if
       @zombie.save
       render :show, status: :created
