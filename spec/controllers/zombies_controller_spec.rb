@@ -99,25 +99,4 @@ RSpec.describe Api::V1::ZombiesController, type: :controller do
       }.to change(Zombie, :count).by(-1)
     end
   end
-
-
-  describe 'POST #add_armors' do
-    it 'add specific armors to specific zombie', :show do
-      zombie = Zombie.create! valid_attributes
-      armor_id = FactoryBot.create_list(:armor, 3).pluck(:id)
-      post :add_armor, params: {id: zombie.to_param, armor_id: armor_id}
-      zombie.reload
-      expect(zombie.armors.count).to eq(3)
-    end
-  end
-
-  describe 'POST #add_weapons' do
-    it 'add specific weapons to specific zombie' do
-      zombie = Zombie.create! valid_attributes
-      weapon_ids = FactoryBot.create_list(:weapon, 3).pluck(:id)
-      post :add_weapons, params: {id: zombie.to_param, weapon_ids: weapon_ids}
-      zombie.reload
-      expect(zombie.weapons.count).to eq(3)
-    end
-  end
 end
