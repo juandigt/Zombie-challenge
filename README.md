@@ -39,108 +39,108 @@ For the implementation of the solution:
 6. I deployed the API to Heroku: https://zombie-challenge-badi.herokuapp.com/
 
 
-The API
+##The API
 These are the calls to the API:
 
 
 Show Zombie
-URL: /api/v1/zombies/:id
-Method: GET
-URL Params: Required: id=[integer]
+- URL: /api/v1/zombies/:id
+- Method: GET
+- URL Params: Required: id=[integer]
 
 
 Index All Zombies
-URL: /api/v1/zombies
-Method: GET
-URL Params: None
+- URL: /api/v1/zombies
+- Method: GET
+- URL Params: None
 
 Create Zombie
-URL: api/v1/zombies
-Method: POST
-Data Params: Required: name=[string]; Not required: hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
+- URL: api/v1/zombies
+- Method: POST
+- Data Params: Required: name=[string]; Not required: hit_points=[integer], brains_eaten=[integer], speed=[integer], - weapon_id=[integer], armor_id=[integer]
 
 Update Zombie
-URL: /api/v1/zombies/:id
-Method: PUT
-URL Params: Required: id=[integer]
-Data Params: name=[string], hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
+- URL: /api/v1/zombies/:id
+- Method: PUT
+- URL Params: Required: id=[integer]
+- Data Params: name=[string], hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
 
 Destroy Zombie
-URL: /api/v1/zombies/:id
-Method: DELETE
-URL Params: Required: id=[integer]
+- URL: /api/v1/zombies/:id
+- Method: DELETE
+- URL Params: Required: id=[integer]
 
 Add a weapon to a Zombie
-URL: api/v1/zombies/:id/add_weapon
-Method: POST
-Data Params: Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
+- URL: api/v1/zombies/:id/add_weapon
+- Method: POST
+- Data Params: Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
 
 Add a armor to a Zombie
-URL: api/v1/zombies/:id/add_armor
-Method: POST
-Data Params: Required: name=[string]; Not required: deffense_points=[integer], durability=[integer], price=[integer]
+- URL: api/v1/zombies/:id/add_armor
+- Method: POST
+- Data Params: Required: name=[string]; Not required: deffense_points=[integer], durability=[integer], price=[integer]
 
 remove a weapon to a Zombie
-URL: api/v1/zombies/:id/remove_weapon
-Method: POST
-Data Params: Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
+- URL: api/v1/zombies/:id/remove_weapon
+- Method: POST
+- Data Params: Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
 
 remove a armor to a Zombie
-URL: api/v1/zombies/:id/remove_armor
-Method: POST
-Data Params: Required: name=[string]; Not required: deffense_points=[integer], durability=[integer], price=[integer]
+- URL: api/v1/zombies/:id/remove_armor
+- Method: POST
+- Data Params: Required: name=[string]; Not required: deffense_points=[integer], durability=[integer], price=[integer]
 
 
 Index All Weapons
-URL: /api/v1/weapons
-Method: GET
+- URL: /api/v1/weapons
+- Method: GET
 
 Show Weapon
-URL: /api/v1/weapons/:id
-Method: GET
-URL Params: Required: id=[integer]
+- URL: /api/v1/weapons/:id
+- Method: GET
+- URL Params: Required: id=[integer]
 
 Create Weapon
-URL: /api/v1/weapons
-Method: POST
-Data Params: Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
+- URL: /api/v1/weapons
+- Method: POST
+- Data Params: Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
 
 Update Weapon
-URL: /api/v1/weapons/:id
-Method: PUT
-URL Params: Required: id=[integer]
-Data Params: name=[string], attack_points=[integer], durability=[integer], price=[integer]
+- URL: /api/v1/weapons/:id
+- Method: PUT
+- URL Params: Required: id=[integer]
+- Data Params: name=[string], attack_points=[integer], durability=[integer], price=[integer]
 
 Destroy Weapon
-URL: /api/v1/weapons/:id
-Method: DELETE
-URL Params: Required: id=[integer]
+- URL: /api/v1/weapons/:id
+- Method: DELETE
+- URL Params: Required: id=[integer]
 
 Index All Armors
-URL: /api/v1/armors
-Method: GET
-URL Params: None
+- URL: /api/v1/armors
+- Method: GET
+- URL Params: None
 
 Show Armor
-URL: /api/v1/armors/:id
-Method: GET
-URL Params: Required: id=[integer]
+- URL: /api/v1/armors/:id
+- Method: GET
+- URL Params: Required: id=[integer]
 
 Create Armor
-URL: /api/v1/armors
-Method: POST
-Data Params: Required: name=[string]; Not required: defense_points=[integer], durability=[integer], price=[integer]
+- URL: /api/v1/armors
+- Method: POST
+- Data Params: Required: name=[string]; Not required: defense_points=[integer], durability=[integer], price=[integer]
 
 Update Armor
-URL: /api/v1/armors/:id
-Method: PUT
-URL Params: Required: id=[integer]
-Data Params: name=[string], defense_points=[integer], durability=[integer], price=[integer]
+- URL: /api/v1/armors/:id
+- Method: PUT
+- URL Params: Required: id=[integer]
+- Data Params: name=[string], defense_points=[integer], durability=[integer], price=[integer]
 
 Destroy Armor
-URL: /api/v1/armors/:id
-Method: DELETE
-URL Params: Required: id=[integer]
+- URL: /api/v1/armors/:id
+- Method: DELETE
+- URL Params: Required: id=[integer]
 
 ** There are some task I'm still working on it. Like controller test or seed the heroku app after deployed.
 
