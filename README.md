@@ -31,16 +31,17 @@ Create a fully-working API that allows to perform the following operations:
 The project is a RESTful API wich you can manipulate the Zombie model.
 For the implementation of the solution:
 
-1. I create the models, Zombie, Armor and weapons and its routes and validations.
-2. I create the basic controller for Zombie, Armor and Weapon. Definined the methods for index, show, create, update, and destroy.
+1. I created the models, Zombie, Armor and weapons and its routes and validations.
+2. I created the basic controller for Zombie, Armor and Weapon. Definined the methods for index, show, create, update, and destroy.
 3. I defined a method for add and remove armors and weapons to a Zombie.
-4. Implement the index method for search zombies by specific atribure. I use the scope  Active Record property.
-5. I build the test using RSpec-rails gem. Test arre donde for medels, routes and zombie controller. Run "bundle exec rspec" for testing.
+4. Implemented the index method for search zombies by specific atributes. I used the scope  Active Record property.
+5. I built the test using RSpec-rails gem. Test are done for models, routes and zombie controller. Run "bundle exec rspec" for testing.
 6. I deployed the API to Heroku: https://zombie-challenge-badi.herokuapp.com/
 
 
 ##The API
-These are the calls to the API:
+
+###These are the calls to the API:
 
 
 Show Zombie
@@ -80,16 +81,15 @@ Add a armor to a Zombie
 - Method: POST
 - Data Params: Required: name=[string]; Not required: deffense_points=[integer], durability=[integer], price=[integer]
 
-remove a weapon to a Zombie
+Remove a weapon to a Zombie
 - URL: api/v1/zombies/:id/remove_weapon
 - Method: POST
 - Data Params: Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
 
-remove a armor to a Zombie
+Remove a armor to a Zombie
 - URL: api/v1/zombies/:id/remove_armor
 - Method: POST
 - Data Params: Required: name=[string]; Not required: deffense_points=[integer], durability=[integer], price=[integer]
-
 
 Index All Weapons
 - URL: /api/v1/weapons
@@ -142,7 +142,9 @@ Destroy Armor
 - Method: DELETE
 - URL Params: Required: id=[integer]
 
-** There are some task I'm still working on it. Like controller test or seed the heroku app after deployed.
+
+
+*** There are some task I'm still working on it. Like controller test or seed the heroku app after deployed.
 
 
 
