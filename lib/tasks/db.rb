@@ -1,4 +1,4 @@
-require 'Faker'
+require 'faker'
 namespace :db do
 
   task :faker => :environment do

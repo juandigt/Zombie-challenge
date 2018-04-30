@@ -2,6 +2,7 @@ class Api::V1::ZombiesController < Api::V1::BaseController
 
    before_action :set_zombie, only: [ :show, :update, :destroy, :add_armor, :add_weapon, :remove_armor, :remove_weapon ]
 
+   #show all zombies. Can filter by any atribute, armor or weapon, for search an specific zombie
   def index
     @zombies = Zombie.where(nil) # creates an anonymous scope
     @zombies = @zombies.starts_with(params[:starts_with]) if params[:starts_with].present?
@@ -12,12 +13,14 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     @zombies = @zombies.armors(params[:armors].split(',')) if params[:armors].present?
   end
 
+  #show a zombie with its atributes, weapons and armors
   def show
     @weapon = @zombie.weapons
     @armor = @zombie.armors
     render json: { zombie: @zombie, zombie_weapons: @weapon, zombie_armors: @armor}
   end
 
+  #crete a new zombie with one random armor and weapon
   def create
     @zombie = Zombie.new(zombie_params)
     @zombie.armors << Armor.all.sample
@@ -30,6 +33,7 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     end
   end
 
+  #update an existing zombie
   def update
     if @zombie.update(zombie_params)
       render :show
@@ -38,6 +42,7 @@ class Api::V1::ZombiesController < Api::V1::BaseController
     end
   end
 
+  #destroy a specific zombie
   def destroy
     @zombie.destroy
     head :no_content
